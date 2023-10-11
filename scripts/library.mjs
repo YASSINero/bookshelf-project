@@ -8,15 +8,18 @@ export function Book(title, author, pages, read) {
 }
 
 
-export function appendBook(book) {
+export function appendNewBook(book) {
     const oldLen = LIBRARY.length;
-    const newLen = LIBRARY.push(book);
-    
-    if(newLen === (oldLen+1)) {
-        return newLen;
-    } else {
-        return -1;
+    if(!LIBRARY.some((item) => item.title === book.title)) {
+        var newLen = LIBRARY.push(book);
+        
+        if(newLen === (oldLen+1)) {
+            return newLen;
+        } else {
+            return -1;
+        }
     }
+    return -1;
 }
 
 export function deleteBook(book) {
