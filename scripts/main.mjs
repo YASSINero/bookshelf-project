@@ -31,3 +31,17 @@ form.addEventListener('submit', (e) => {
     }
         
 });
+
+const displayBtn = document.querySelectorAll('.btn-wrapper > button');
+
+displayBtn.item(1).addEventListener('click', () => {
+
+
+    if(LIBRARY.length > 0) {
+        let book_cnt = 1;
+        LIBRARY.forEach((book)=> {
+            console.log(`Book N°${book_cnt}: ${book.title}`);
+            book_cnt++
+        });
+    }
+});
