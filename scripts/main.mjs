@@ -1,4 +1,4 @@
-import { LIBRARY, Book, appendNewBook, deleteBook } from "./library.mjs";
+import { LIBRARY, Book, appendNewBook, deleteLastBook } from "./library.mjs";
 
 
 const form = document.getElementById('book_form');
@@ -32,10 +32,11 @@ form.addEventListener('submit', (e) => {
         
 });
 
-const displayBtn = document.querySelectorAll('.btn-wrapper > button');
+//=============----------------Display/Delete Section----------------=============
 
-displayBtn.item(1).addEventListener('click', () => {
+const displayBtns = document.querySelectorAll('.btn-wrapper > button');
 
+displayBtns.item(1).addEventListener('click', () => {
 
     if(LIBRARY.length > 0) {
         let book_cnt = 1;
@@ -44,4 +45,15 @@ displayBtn.item(1).addEventListener('click', () => {
             book_cnt++
         });
     }
+});
+
+displayBtns.item(0).addEventListener('click', () => {
+
+    if(LIBRARY.length > 0) {
+        deleteLastBook();
+    }
+    else {
+        console.log(`Library is empty\nerror code: ${LIBRARY.length}`);
+    }
+
 });

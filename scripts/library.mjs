@@ -22,16 +22,10 @@ export function appendNewBook(book) {
     return -1;
 }
 
-export function deleteBook(book) {
+export function deleteLastBook() {
 
-    const index = LIBRARY.indexOf(book);
+    return LIBRARY.pop();
 
-    if(index === -1) {
-        return -1;
-    }
-    
-    const dltArr = LIBRARY.splice(index, 1);
-    return dltArr;
 }
 
 //TODO: Implement modules
