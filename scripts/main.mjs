@@ -35,8 +35,19 @@ form.addEventListener('submit', (e) => {
 //=============----------------Display/Delete Section----------------=============
 
 const displayBtns = document.querySelectorAll('.btn-wrapper > button');
+const btnWrapper = document.querySelector('.btn-wrapper');
 
 displayBtns.item(1).addEventListener('click', () => {
+
+    btnWrapper.insertAdjacentElement('afterbegin', Object.assign(
+        document.createElement("div"), 
+        {
+            id: 'bookinfo',
+            innerHTML: `<p>Book Title: </p>
+                        <p>Book Author: </p>
+                        <p>Read? -> </p>`
+                        //${.read}  ${.author}  ${.title}
+        }));
 
     if(LIBRARY.length > 0) {
         let book_cnt = 1;
