@@ -35,17 +35,19 @@ form.addEventListener('submit', (e) => {
 //=============----------------Display/Delete Section----------------=============
 
 const displayBtns = document.querySelectorAll('.btn-wrapper > button');
-const btnWrapper = document.querySelector('.btn-wrapper');
+const libCtn = document.querySelector('.lib-container');
 
 displayBtns.item(1).addEventListener('click', () => {
 
-    btnWrapper.insertAdjacentElement('afterbegin', Object.assign(
-        document.createElement("div"), 
+    libCtn.insertAdjacentElement('afterbegin', Object.assign(
+        document.createElement("div"),
         {
             id: 'bookinfo',
             innerHTML: `<p>Book Title: </p>
                         <p>Book Author: </p>
-                        <p>Read? -> </p>`
+                        <p>Read? -> </p>
+                        <button style=\"margin-right: 0; margin-left: 0;\">Delete</button>`
+            
                         //${.read}  ${.author}  ${.title}
         }));
 
